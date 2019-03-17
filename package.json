@@ -1,0 +1,70 @@
+{
+  "name": "synapse",
+  "version": "1.0.0",
+  "description": "The brian api to handle frontend transactions",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "start": "node index.js",
+    "lint": "xo --quiet",
+    "lint:format": "xo --quiet --write 'src/**/*.js'",
+    "precommit": "lint-staged"
+  },
+  "keywords": [
+    "api",
+    "node",
+    "koa",
+    "frontend"
+  ],
+  "author": "Caio Alcantara",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-koa": "^2.4.8",
+    "ava": "^1.3.1",
+    "dotenv": "^8.0.0",
+    "esm": "^3.2.18",
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4",
+    "hoopa-logger": "^1.1.0",
+    "koa": "^2.7.0",
+    "koa2-cors": "^2.0.6",
+    "rethinkly": "^1.0.2"
+  },
+  "xo": {
+    "extends": [
+      "prettier"
+    ],
+    "globals": [
+      "it",
+      "describe",
+      "before",
+      "after",
+      "afterEach",
+      "assert",
+      "sinon",
+      "expect"
+    ],
+    "rules": {
+      "prefer-promise-reject-errors": 0,
+      "no-use-extend-native/no-use-extend-native": 0
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn lint",
+      "prettier --semi false --single-quote --trailing-comma --write",
+      "git add"
+    ]
+  },
+  "ava": {
+    "files": [
+      "__tests__/*.spec.js"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "xo": "^0.24.0"
+  }
+}
