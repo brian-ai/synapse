@@ -1,9 +1,8 @@
 import { QueryRoles } from './models/role'
 
-import { startPlaylist } from './models/playlist'
-import { startConversation } from './models/conversation'
+import { startInteraction } from './models/interaction'
 
 export default {
 	Query: { ...QueryRoles },
-	Mutation: { startPlaylist, startConversation },
+	Mutation: { startInteraction },
 }

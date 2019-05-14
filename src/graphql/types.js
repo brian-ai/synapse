@@ -7,11 +7,6 @@ export default gql`
 		slug: String
 	}
 
-	type RequestedGenre {
-		genre: String
-		played: Boolean
-	}
-
 	type StandardResponse {
 		text: String
 		executed: Boolean
@@ -23,7 +18,6 @@ export default gql`
 	}
 
 	type Mutation {
-		startPlaylist(genre: String, play: Boolean): RequestedGenre
-		startConversation(text: String): StandardResponse
+		startInteraction(data: String, channel: String): StandardResponse
 	}
 `
