@@ -1,9 +1,9 @@
 import rethinkly from 'rethinkly'
 
 const config = {
-	host: 'localhost',
-	port: 32769,
-	db: 'brian',
+	host: process.env.RETHINKDB_URL,
+	port: process.env.RETHINKDB_PORT,
+	db: process.env.DB_NAME
 }
 
 export default () => rethinkly(config)

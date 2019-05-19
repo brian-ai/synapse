@@ -12,12 +12,27 @@ export default gql`
 		executed: Boolean
 	}
 
+	type insertResponse {
+		generated_id: String
+		success: Boolean
+	}
+
+	input RoleInput {
+		name: String
+		slug: String
+	}
+
 	type Query {
 		getRole(id: String): Role
 		listRoles: [Role]
 	}
 
 	type Mutation {
-		startInteraction(data: String, channel: String): StandardResponse
+		startInteraction(
+			data: String
+			channel: String
+			options: String
+		): StandardResponse
+		createRole(data: RoleInput): insertResponse
 	}
 `

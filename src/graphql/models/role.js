@@ -1,23 +1,36 @@
-import { retrieveData } from 'rethinkly'
+import logger from 'hoopa-logger'
+import { retrieveData, insertData } from 'rethinkly'
 import rethinkly from '../../services/rethinkly'
 
 export const QueryRoles = {
-	getRole: async (_, { id }) => retrieveData(await rethinkly(), 'roles', id),
+	getRole: async (_, { id }) => {
+		logger.info(`Getting role --id: ${id} from rethink`)
 
-	listRoles: async () => retrieveData(await rethinkly(), 'roles'),
+		return retrieveData(await rethinkly(), 'roles', id)
+	},
+
+	listRoles: async () => {
+		logger.info('List roles from rethink')
+
+		return retrieveData(await rethinkly(), 'roles')
+	}
 }
 
-export const Mutation = {
-	// CreateRole: async (_: any, data: any) =>
-	//     r.save(Object.assign({}, data)),
-	// updateRole: async (_: any, data: any) => {
-	//     return r.get(data.id).updateAt(Object.assign({}, data)).run()
-	// },
-	// deleteRole: async (_: any, { id }: any) => {
-	//     return r.get(id).then((author: any) => {
-	//         if (author) {
-	//             return author.delete()
-	//         }
-	//     })
-	// }
+export const createRole = async (_, { data }) => {
+	logger.info(`Creating role ${JSON.stringify(data)}...`)
+	const { generated_keys = [] } = await insertData(
+		await rethinkly(),
+		'roles',
+		data
+	)
+	if (!generated_keys.length) {
+		logger.error(`Error inserting --data: ${JSON.stringify(data)}`)
+
+		return {
+			success: false,
+			generated_id: ''
+		}
+	}
+
+	return { success: true, generated_id: generated_keys[0] }
 }
