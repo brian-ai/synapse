@@ -1,8 +1,8 @@
-import { QueryRoles, createRole } from './models/role'
+import { getRole, listRoles, createRole } from './actions/role'
 
-import { startInteraction } from './models/interaction'
+import { startInteraction } from './actions/interaction'
 
 export default {
-	Query: { ...QueryRoles },
-	Mutation: { startInteraction, createRole }
+	Query: { getRole, listRoles },
+	Mutation: { startInteraction, createRole },
 }

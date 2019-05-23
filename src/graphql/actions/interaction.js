@@ -16,7 +16,7 @@ const startInteraction = (_, { data, channel, options }) => {
 
 	return {
 		data,
-		executed
+		executed,
 	}
 }
 
