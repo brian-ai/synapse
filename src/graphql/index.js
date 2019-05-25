@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools'
-// Helpers
+// Scheme Content
 import typeDefs from './type-defs'
 import resolvers from './resolvers'
 
