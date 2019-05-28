@@ -43,7 +43,7 @@ $ cp env.example .env
 ```
 
 and fill it with the correct information related to your system (RabbitMQ and RethinkDB information)
-Also remember to restore the [database structure]()
+Also remember to restore the [database structure](https://brian-ai.github.io/synapse/#/database-structure/db-structure)
 
 **4 - Run the server**
 
