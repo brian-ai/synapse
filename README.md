@@ -22,7 +22,7 @@ You'll use synapse to directly communicate with it without the necessity to acce
 
 To have this api up and running you need to have both [RabbitMQ](https://hub.docker.com/_/rabbitmq/) and [RethinkDB](https://hub.docker.com/_/rethinkdb) services :white_check_mark:.
 
-## Instalation :rocket:
+## Instalation
 
 **1 - Clone the repository**
 
