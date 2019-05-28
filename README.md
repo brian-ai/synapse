@@ -51,4 +51,4 @@ Also remember to restore the [database structure]()
 $ yarn start
 ```
 
-> The api should be available under http://localhost:4000/graphql, also the graphql playground docs with all available [mutations]() and [queries]().
+> The api should be available under http://localhost:4000/graphql, also the graphql playground docs with all available [mutations](https://brian-ai.github.io/synapse/#/mutations/all-mutations) and [queries](https://brian-ai.github.io/synapse/#/queries/all-queries).
