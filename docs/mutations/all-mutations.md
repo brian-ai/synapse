@@ -10,7 +10,7 @@ Example:
 mutation {
 	startInteraction(
 		data: "John Mayer"
-		channel: "playlist"
+		channel: "music"
 		options: "{ \"play\": true }"
 	) {
 		text

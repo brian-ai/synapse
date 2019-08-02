@@ -1,11 +1,11 @@
-import rethinkly, { retrieveData, insertData } from 'rethinkly'
+import rethinkly, { transactions } from 'rethinkly'
 
 const config = {
-	host: process.env.RETHINKDB_URL,
-	port: process.env.RETHINKDB_PORT,
-	db: process.env.DB_NAME,
+  host: process.env.RETHINKDB_URL,
+  port: process.env.RETHINKDB_PORT,
+  db: process.env.DB_NAME
 }
 
-const Rethinkly = () => rethinkly(config)
+const Rethinkly = () => rethinkly.connect(config)
 
-export { Rethinkly, retrieveData, insertData }
+export { Rethinkly, transactions }

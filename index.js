@@ -5,6 +5,7 @@
  */
 /* eslint-disable no-global-assign */
 require('dotenv').config()
+require('babel-polyfill')
 require = require('esm')(module)
 
 module.exports = require('./src/main')

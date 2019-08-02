@@ -8,7 +8,7 @@ export default gql`
 	}
 
 	type StandardResponse {
-		text: String
+		data: String
 		executed: Boolean
 	}
 
