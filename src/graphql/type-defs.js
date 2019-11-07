@@ -1,38 +1,45 @@
 import { gql } from 'apollo-server-koa'
 
 export default gql`
-	type Role {
-		id: String
-		name: String
-		slug: String
-	}
+  type Role {
+    id: String
+    name: String
+    slug: String
+  }
 
-	type StandardResponse {
-		data: String
-		executed: Boolean
-	}
+  type Config {
+    id: String
+    version: String
+    isMorning: Boolean
+  }
 
-	type insertResponse {
-		generated_id: String
-		success: Boolean
-	}
+  type StandardResponse {
+    data: String
+    executed: Boolean
+  }
 
-	input RoleInput {
-		name: String
-		slug: String
-	}
+  type insertResponse {
+    generated_id: String
+    success: Boolean
+  }
 
-	type Query {
-		getRole(id: String): Role
-		listRoles: [Role]
-	}
+  input RoleInput {
+    name: String
+    slug: String
+  }
 
-	type Mutation {
-		startInteraction(
-			data: String
-			channel: String
-			options: String
-		): StandardResponse
-		createRole(data: RoleInput): insertResponse
-	}
+  type Query {
+    getRole(id: String): Role
+    listRoles: [Role]
+    getConfig: [Config]
+  }
+
+  type Mutation {
+    startInteraction(
+      data: String
+      channel: String
+      options: String
+    ): StandardResponse
+    createRole(data: RoleInput): insertResponse
+  }
 `

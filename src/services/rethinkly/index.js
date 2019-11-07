@@ -1,4 +1,4 @@
-import rethinkly, { transactions } from 'rethinkly'
+import { createLink, data } from 'rethinkly'
 
 const config = {
   host: process.env.RETHINKDB_URL,
@@ -6,6 +6,9 @@ const config = {
   db: process.env.DB_NAME
 }
 
-const Rethinkly = () => rethinkly.connect(config)
+const Rethinkly = () => createLink(config)
+// TODO: Export better this methods
+const retrieveData = data.get
+const insertData = data.insert
 
-export { Rethinkly, transactions }
+export { Rethinkly, retrieveData, insertData }
